@@ -5,13 +5,14 @@ function res = GeppForBandMatrixes(a, b, p, q)
     % check if matrix is a square matrix
     if d(1) ~= d(2)
         fprintf('calculation not possible');
+        res = [0];
     else
         n = d(1);
         % for every column
         for k = 1:d(1)
             p1 = min(p + q, n - k);
             q1 = min(q, n - k);
-            [s, r] = max(a(k:(q1 + 1)), k);
+            [s, r] = max(a(k:(q1 + 1), k));
             if s == 0
                 break;
             end
@@ -38,17 +39,16 @@ function res = GeppForBandMatrixes(a, b, p, q)
                 break;
             end
         end
-        x = [];
-        for k = n:1
-            p1 = min(p + k, n - l);
+        x = zeros(1, n);
+        for k = n:-1:1
+            p1 = min(p + 1, n - k);
             sum = 0;
             for j = (k + 1):(k + p1)
                 sum = sum + a(k,j) * x(j);
             end
             x(k) = (b(k) - sum)/a(k,k);
         end
+        res = x;
     end
-
-    res = 10;
 end
 
