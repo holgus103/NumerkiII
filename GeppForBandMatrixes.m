@@ -13,6 +13,7 @@ function res = GeppForBandMatrixes(a, b, p, q)
             p1 = min(p + q, n - k);
             q1 = min(q, n - k);
             [s, r] = max(a(k:(q1 + k), k));
+            r = k + r - 1;
             if s == 0
                 break;
             end
@@ -30,7 +31,7 @@ function res = GeppForBandMatrixes(a, b, p, q)
             end
             for i = (k + 1):(k + q1)
                 m = a(i, k)/ a(k, k);
-                for j = (k + 1):(k + p1)
+                for j = (k +1):(k + p1)
                     a(i, j) = a(i, j) - m * a(k,j);
                 end
                 b(i) = b(i) - m * b(k);
