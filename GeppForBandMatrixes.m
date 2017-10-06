@@ -9,10 +9,10 @@ function res = GeppForBandMatrixes(a, b, p, q)
     else
         n = d(1);
         % for every column
-        for k = 1:d(1)
+        for k = 1:(n - 1)
             p1 = min(p + q, n - k);
             q1 = min(q, n - k);
-            [s, r] = max(a(k:(q1 + 1), k));
+            [s, r] = max(a(k:(q1 + k), k));
             if s == 0
                 break;
             end
@@ -21,12 +21,12 @@ function res = GeppForBandMatrixes(a, b, p, q)
                     % swap a elements
                     t = a(r, j);
                     a(r, j) = a(k, j);
-                    a(k, j) = t;
-                    % swap b elements
-                    t = b(r);
-                    b(r) = b(p1);
-                    b(p1) = t;                    
+                    a(k, j) = t;                 
                 end
+                % swap b elements
+                t = b(r);
+                b(r) = b(k);
+                b(k) = t;   
             end
             for i = (k + 1):(k + q1)
                 m = a(i, k)/ a(k, k);
@@ -35,13 +35,13 @@ function res = GeppForBandMatrixes(a, b, p, q)
                 end
                 b(i) = b(i) - m * b(k);
             end
-            if a(n,n) == 0
-                break;
-            end
+        end
+        if a(n,n) == 0
+            res = [0];
         end
         x = zeros(1, n);
         for k = n:-1:1
-            p1 = min(p + 1, n - k);
+            p1 = min(p + q, n - k);
             sum = 0;
             for j = (k + 1):(k + p1)
                 sum = sum + a(k,j) * x(j);
