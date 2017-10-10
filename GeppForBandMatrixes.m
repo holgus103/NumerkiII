@@ -1,6 +1,14 @@
 function res = GeppForBandMatrixes(a, b, p, q)
-%UNTITLED2 Summary of this function goes here
-%   Detailed explanation goes here
+% Calculates solutions for a set of linear equatiosn using
+% the Gaussian Elimination Algorithm with Parcial Pivoting 
+% for Band Matrixes
+% Parameters:
+% a - Matrix of linear equations
+% b - Vector with b values for the equations
+% p - Upper bandwidth
+% q - Lower bandwidth
+% Returns:
+% res - Vector of solutions 
     d = size(a);
     % check if matrix is a square matrix
     if d(1) ~= d(2)
