@@ -27,4 +27,39 @@ b2 = [1 6 7 9 21 3];
 val = GeppForBandMatrixes(a2, b2, 1, 1);
 
 
+a3 = [1 2 3 4 5 6
+      7 6 2 0 0 0
+      0 3 4 2 0 0
+      1 0 9 2 1 0
+      11 0 0 1 6 8
+      2 0 0 0 2 1];
+ 
+b3 = [21 15 9 13 26 5];
+
+val = GeppForBandMatrixes(a3, b3, 5, 5);
+
+
+a4 = [2 4 1
+      1 1 1
+      4 1 7];
+ 
+b4 = [7, 10, 12];
+
+val = GeppForBandMatrixes(a4, b4, 2, 2);
+
+a5 = [1 1 3
+      2 2 6
+      4 1 7];
+ 
+b5 = [10, 20, 12];
+
+val = GeppForBandMatrixes(a5, b5, 2, 2);
+
+a6 = [2 6 4
+      1 3 2
+      5 3 7];
+ 
+b6 = [5, 3, 2];
+
+val = GeppForBandMatrixes(a6, b6, 2, 2);
 
