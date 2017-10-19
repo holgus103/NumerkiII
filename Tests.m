@@ -63,3 +63,10 @@ b6 = [5, 3, 2];
 
 val = GeppForBandMatrixes(a6, b6, 2, 2);
 
+a7 = [1 1 4
+      -4 2 8
+      3 3 12];
+ 
+b7 = [5, 3, 2];
+
+val = GeppForBandMatrixes(a7, b7, 2, 2);
