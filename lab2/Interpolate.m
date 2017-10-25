@@ -1,22 +1,22 @@
 function res = Interpolate(A, B, C, D, n, f)
-    [ul, ur, ll, lr] = DivideIntoSquares(A, B, C, D, n);
-    res = zeros(n*n, 2);
+    [mashValues, dx, dy] = EvaluateMashes(A, B, C, D, n, f);
+    res = zeros(n,n);
+    res(:,:,2) = zeros(n,n);
+    start = A + dy + dx;
     % foreach square
-    for i = 1 : (n*n)
-        % calculate coords
-        x0 = ul(i, 1);
-        x1 = ur(i, 1);
+    for i = 1:n
+        start(1,1) = A(1,1) + dx(1,1);
+        for j = 1:n
+            % calculate coords
+            x = start(1,1);
+            y = start(1,2);
 
-        y0 = ul(i, 2);
-        y1 = ll(i, 2);
-        
-        % set variables
-        x = (x0 + x1)/2;
-        y = (y0 + y1)/2;
-        
-        % calculate fi 
-        res(i, 1) = CalculateSquare(x0, x1, y0, y1, x, y, f);
-        res(i, 2) = eval(f);
+            % calculate fi 
+            res(i,j,1) = CalculateSquare(x, y, mashValues, A, dx(1,1), dy(1,2));
+            res(i,j,2) = eval(f);
+            start = start + 2*dx;
+        end
+        start = start + 2*dy;
     end
 end
 

@@ -1,5 +1,12 @@
-function res = CalculateSquare(x0, x1, y0, y1, x, y, f)
-    
+function res = CalculateSquare(x, y, meshValues, A, dx, dy)
+    xSquare = floor((x - A(1,1)) / 2 / dx);
+    ySquare = floor((y - A(1,2)) / 2 /dy);
+    x0 = A(1,1) + xSquare * 2 * dx;
+    y0 = A(1,2) + ySquare * 2 * dy;
+    x2 = x0 + dx;
+    y2 = y0 + dy;
+    x1 = x2 + dx;
+    y1 = y2 + dy;
     % nested functions
     function res = l0(x)
         res = (x - x1)*(x - x2)/(x0 - x1)/(x0 - x2);
@@ -24,21 +31,23 @@ function res = CalculateSquare(x0, x1, y0, y1, x, y, f)
     function res = g2(y)
         res = (y - y0)*(y - y1)/(y2 - y0)/(y2 - y1);
     end
-
-    % variables
-    x2 = (x0 + x1) / 2;
-    y2 = (y0 + y1) / 2; 
     
     % array of function handles
     l = {@l0, @l1, @l2};
     g = {@g0; @g1; @g2};
+    values = zeros(3,3);
+    for i = 1:3
+        for j = 1:3
+            values(i, j) = meshValues(xSquare + i, ySquare + j);
+        end
+    end
     
     sum = 0;
     for i = 1:3
         for j = 1:3
             lo = l{i};
             go = g{j};
-            sum = sum + eval(f)*lo(x)*go(y);
+            sum = sum + values(i, j)*lo(x)*go(y);
         end
     end
     res = sum;
