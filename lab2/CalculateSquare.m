@@ -1,6 +1,6 @@
 function res = CalculateSquare(x, y, meshValues, A, dx, dy)
     xSquare = floor((x - A(1,1)) / 2 / dx);
-    ySquare = floor((y - A(1,2)) / 2 /dy);
+    ySquare = floor((y - A(1,2)) / 2 / dy);
     x0 = A(1,1) + xSquare * 2 * dx;
     y1 = A(1,2) + ySquare * 2 * dy;
     x2 = x0 + dx;
@@ -33,8 +33,8 @@ function res = CalculateSquare(x, y, meshValues, A, dx, dy)
     end
     
     % array of function handles
-    l = {@l0; @l2; @l0};
-    g = {@g0; @g2; @g1};
+    l = {@l0; @l2; @l1};
+    g = {@g1; @g2; @g0};
     values = zeros(3,3);
     for i = 1:3
         for j = 1:3
