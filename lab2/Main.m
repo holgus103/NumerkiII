@@ -1,5 +1,5 @@
 n = 5;
-res = Interpolate([0,1],[1,1],[1,0],[0,0], n, 'sin(x)/y');
+res = Interpolate([0,1],[1,1],[1,0],[0,0], n, 'sin(x)*y');
 res(:,:,3) = zeros(n,n);
 res(:,:,4) = zeros(n,n);
 for i = 1:n
