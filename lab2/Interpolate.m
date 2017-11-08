@@ -35,5 +35,6 @@ function [res, maxabs, maxaprox] = Interpolate(A, B, C, D, n, f, points)
     end
     maxabs = max(abs(res(:, 5)));
     maxaprox = max(abs(res(:, 6)));
+    res  = array2table(res,'VariableNames',{'x','y','interpolated_value','actual_value','absolute_error','aproximation_error'});
 end
 
