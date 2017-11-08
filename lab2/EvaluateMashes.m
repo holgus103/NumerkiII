@@ -16,9 +16,6 @@ function [vals, dx, dy] = EvaluateMashes(A, B, C, D, n, f)
     bc = C - B;
     cd = D - C;
     da = A - D;
-    if(abs(ab) ~= abs(bc) ~= abs(cd) ~= abs(da))
-        return;
-    end
     px = A;
     dx = ab / 2 / n;
     dy = bc / 2 / n;
