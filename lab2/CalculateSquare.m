@@ -1,4 +1,14 @@
 function res = CalculateSquare(x, y, meshValues, A, dx, dy)
+% Performs interpolation for a given point (x, y) 
+% Parameters:
+% x - X-coordinate of desired point
+% y - Y-coordinate of desired pointe
+% meshValues - Array of precomputed function values in interpolation nodes
+% A - Left upper corner of the interpolated square
+% dx - Horizontal step
+% dy - Vertical step
+% Returns:
+% res - Interpolated value 
     xSquare = floor((x - A(1,1)) / 2 / dx);
     ySquare = floor((y - A(1,2)) / 2 / dy);
     x0 = A(1,1) + xSquare * 2 * dx;
