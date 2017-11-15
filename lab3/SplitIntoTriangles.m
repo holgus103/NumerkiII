@@ -1,5 +1,5 @@
 function triangles = SplitIntoTriangles(A, B, C, n)
-    triangles(:, :, 1) = zeros(n*n, 3);
+    triangles = zeros(n*n, 3);
     triangles(:, :, 2) = zeros(n*n, 3);
     ca = C - A;
     ba = B - A;
