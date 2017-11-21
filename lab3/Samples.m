@@ -21,3 +21,10 @@ fnc = '(x - 2) + (x - 7)^2';
 val = MatlabIntegration(f);
 val2 = Integrate(fnc,1);
 
+
+% For n = 10 - moregit c precision
+f = @(x,y) abs(sin(x) + sin(y));
+fnc = 'abs(sin(x) + sin(y))';
+val = MatlabIntegration(f);
+val2 = Integrate(fnc,1);
+
