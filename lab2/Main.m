@@ -8,6 +8,15 @@ D = [0,0];
 points = GenerateTestPoints(A, B, C, D, n);
 [res, maxabs, maxaprox] = Interpolate(A,B,C,D, n, 'sin(x)*y', points);
 
+% initialize points
+n = 5;
+A = [0,2];
+B = [1,2];
+C = [1,0];
+D = [0,0];
+% get points
+points = GenerateTestPoints(A, B, C, D, n);
+[res, maxabs, maxaprox] = Interpolate(A,B,C,D, n, 'sin(x)*y', points);
 
 % initialize points
 n = 5;
