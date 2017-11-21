@@ -1,4 +1,11 @@
 function Integral = Integrate(f,n)
+% Calculates the intergral over the region:
+% {x, y: -1 <= x <= 1, -1 <= y <= 1} \ {(x, y) in R: |x| + |y| <= 1}
+% Parameters:
+% f - Function to be integrated
+% n - Parameter of the function calculating the number of triangles
+% Returns:
+% Intagral - Integral value
     t = [
             -1  1
              0  1

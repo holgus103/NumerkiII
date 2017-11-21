@@ -1,15 +1,20 @@
 function triangles = SplitIntoTriangles(A, B, C, n)
+% Splits a triangle into n^2 congruent triangles
+% Parameters:
+% A - Triangle vertex
+% B - Triangle vertex
+% C - Triangle vertex
+% n - Parameter used for calculating the amount of triangles
+% Returns:
+% S - Integral value
     triangles = zeros(n*n, 3);
     triangles(:, :, 2) = zeros(n*n, 3);
     ca = C - A;
     ba = B - A;
-    cb = C - B;
     dca = ca / n;
     dba = ba / n;
-    dcb = cb / n;
     current = A;
     currentLine = A;
-    ending = B;
     i = 1;
     currentMax = 2*n - 1;
     currentCount = 0;
