@@ -9,21 +9,21 @@ function val = MatlabIntegration(f)
     triangleX = [-1, 0, -1];
     triangleY = [1, 1, 0];
     fun = @(x, y) f(x,y) .* inpolygon(x, y, triangleX, triangleY);
-    val = val + integral2(fun,-1,1,-1,1);
+    val = val + integral2(fun,-1,0,0,1);
 
     triangleX = [0, 1, 1];
     triangleY = [1, 1, 0];
     fun = @(x, y) f(x,y) .* inpolygon(x, y, triangleX, triangleY);
-    val = val + integral2(fun,-1,1,-1,1);
+    val = val + integral2(fun,0,1,0,1);
 
     triangleX = [0, 1, 1];
     triangleY = [-1, -1, 0];
     fun = @(x, y) f(x,y) .* inpolygon(x, y, triangleX, triangleY);
-    val = val + integral2(fun,-1,1,-1,1);
+    val = val + integral2(fun,0,1,-1,0);
 
     triangleX = [-1, 0, -1];
     triangleY = [-1, -1, 0];
     fun = @(x, y) f(x,y) .* inpolygon(x, y, triangleX, triangleY);
-    val = val + integral2(fun,-1,1,-1,1);
+    val = val + integral2(fun,-1,0,-1,0);
 end
 
