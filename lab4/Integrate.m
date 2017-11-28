@@ -16,9 +16,9 @@ X = ((b-a).* X+(b+a))./2;
 
 
 S = 0;
-for i = 1:4
-    x = X(i);
-    S = S + A(i) * eval(f);  
+for j = 1:4
+    x = X(j);
+    S = S + A(j) * f(x);  
 end
     
 end
