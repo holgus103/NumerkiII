@@ -1,14 +1,16 @@
-function res = Approximate(f, y, n)
-
+function a = Approximate(f, n)
+    function r = Approximator(g, alpha, n, y)
+        r = 0;
+        for j=1:n
+            r =  r + alpha(j) .* g{j}(y);
+        end
+    end
     g = GeneratePolynomials(n);
-    G = GenerateGramMatrix(3);
-    for i=1:4
+    G = GenerateGramMatrix(n-1);
+    for i=1:n
             F(i) = Integrate(-1, 1, @(x) g{i}(x) * f(x));
     end
     alpha = G \ F';
-    res = 0;
-    for i=1:4
-        res =  res + alpha(i) .* g{i}(y);
-    end
+    a = @(y) Approximator(g, alpha, n, y); 
 end
 
