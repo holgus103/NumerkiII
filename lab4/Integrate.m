@@ -1,5 +1,10 @@
 function S = Integrate(a,b, f)
-
+% Integrates function from a to b
+% Parameters:
+% a - X starting value
+% b - X final value 
+% Returns:
+% a - Integral value from a to b
 X(4) = 0.861136311594053;
 X(3) = 0.339981043584856;
 X(2) = -X(3);

@@ -1,4 +1,11 @@
 function res = GenerateTable(f, n, m)
+% Creates a approximator for a function
+% Parameters:
+% f - Handle to approximated function
+% n - Number of polynomials used for approximation 
+% m - Number of points to evaluate 
+% Returns:
+% res - Table with approximated value, precise value and MSE
     x = linspace(-1,1, 10);
     apx = Approximate(f, n);
     function r = ProcessElement(e)
@@ -9,7 +16,7 @@ function res = GenerateTable(f, n, m)
     end
     res = zeros(3, m);
     for i=1:m
-        res(1:3, i) = ProcessElement(apx(x(i)));
+        res(1:3, i) = ProcessElement(x(i));
     end
 end
 
