@@ -6,6 +6,14 @@ function a = Approximate(f, n)
 % Returns:
 % a - Approximator handle
     function r = Approximator(g, alpha, n, y)
+    % Calculates the approximate value in y
+    % Parameters:
+    % g - Approximation polynomial handles
+    % alpha - Polynomial weights
+    % n - Number of polynomials used
+    % y - Point where the value is calculated
+    % Returns:
+    % r - Calculated value
         r = 0;
         for j=1:n
             r =  r + alpha(j) .* g{j}(y);

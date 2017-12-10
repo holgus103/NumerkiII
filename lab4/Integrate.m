@@ -1,8 +1,9 @@
-function S = Integrate(a,b, f)
+function S = Integrate(a, b, f)
 % Integrates function from a to b
 % Parameters:
 % a - X starting value
 % b - X final value 
+% f - Intergrated function handle
 % Returns:
 % a - Integral value from a to b
 X(4) = 0.861136311594053;

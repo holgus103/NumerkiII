@@ -1,5 +1,6 @@
 function res = GenerateTable(f, n, m)
-% Creates a approximator for a function
+% Creates matrix with approximated values, actual values and RMS values in
+% equally distant points of the range (-1, 1)
 % Parameters:
 % f - Handle to approximated function
 % n - Number of polynomials used for approximation 
@@ -9,6 +10,11 @@ function res = GenerateTable(f, n, m)
     x = linspace(-1,1, 10);
     apx = Approximate(f, n);
     function r = ProcessElement(e)
+    % Calculates the approximate value, actual value and the RME in e
+    % Parameters:
+    % e - Point where the value is approximated
+    % Returns:
+    % r - Vector containing the values mentioned above
         r = zeros(3,1);
         r(1) = apx(e);
         r(2) = f(e);
