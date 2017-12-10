@@ -12,7 +12,8 @@ function [eigenvalues,eigenvectors] = PowerMethod(A, e)
                 eigenvalues(i) = lambda;
                 eigenvectors(i, 1: n) = x;
                 % deflation
-                A = A - (lambda * (x * x'))/ sqrt(sum(x .* x));
+                %A = A - (lambda * (x * x'))/ sqrt(sum(x .* x));
+                A = LTransform(A, x, n);
                 break;
             end
         end
