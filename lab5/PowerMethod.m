@@ -10,14 +10,14 @@ function [eigenvalues,eigenvectors] = PowerMethod(A, e)
             lambda = ((A * x)' * x) / sqrt(sum(x .* x));
             if(norm((A * x) - (lambda * x)) < e)
                 eigenvalues(i) = lambda;
-                eigenvectors(i, 1: n) = x;
+                eigenvectors(i, 1: n + 1 - i) = x;
                 if(i == n)
                     return;
                 end
                 % deflation
                 %A = A - (lambda * (x * x'))/ sqrt(sum(x .* x));
-                A = LTransform(A, x, n);
-                A = A(i + 1 : n, i + 1 : n);
+                A = LTransform(A, x, n + 1 - i);
+                A = A(2 : n + 1 - i, 2 : n + 1 - i);
                 x = ones(n - i, 1);
                 break;
             end
