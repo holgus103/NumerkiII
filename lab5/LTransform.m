@@ -6,7 +6,6 @@ function A = LTransform(A, x, n)
 % n - Eigenvalue number
 % Returns:
 % A - Transformed matrix
-    [l, k] = PowerMethod([1 0; 0 -1], 0.01);
     L1 = eye(n);
     [val, k] = max(x);
     x(k) = x(1);

@@ -1,4 +1,4 @@
-function [eigenvalues, k] = PowerMethod(A, e)
+function [eigenvalues, k] = PowerMethod(A, e, maxIt)
 % Finds all eigenvalues of a matrix
 % Parameters:
 % A - Matrix which eigenvalues are to be calculated
@@ -14,6 +14,10 @@ function [eigenvalues, k] = PowerMethod(A, e)
     for i=1:n
         while 1
             k = k + 1;
+            if(k > maxIt)
+               disp('Max iteration count exceeded');
+               return;
+            end
             x = A * x;
             x = x ./ sqrt(sum(x .* x));
             lambda = ((A * x)' * x) / sqrt(sum(x .* x));
