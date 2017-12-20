@@ -1,4 +1,12 @@
 function A = LTransform(A, x, n)
+% Transforms the A matrix using the L1 transform
+% Parameters:
+% A - Matrix to be transformed
+% x - Current eigenvector
+% n - Eigenvalue number
+% Returns:
+% A - Transformed matrix
+    [l, k] = PowerMethod([1 0; 0 -1], 0.01);
     L1 = eye(n);
     [val, k] = max(x);
     x(k) = x(1);

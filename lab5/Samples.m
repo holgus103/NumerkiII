@@ -13,7 +13,7 @@ A = [2 0 0; 0 2 0; 0 0 1];
 A = [4 5; 6 5];
 [l, k] = PowerMethod(A, 0.01);
 
-% slow convergence lambda2 / lambda1 = 0.1
+% slow convergence lambda2 / lambda1 = 0.9
 A = [-4 10; 7 5];
 [l, k] = PowerMethod(A, 0.01);
 

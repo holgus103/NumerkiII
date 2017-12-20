@@ -1,4 +1,11 @@
 function [eigenvalues, k] = PowerMethod(A, e)
+% Finds all eigenvalues of a matrix
+% Parameters:
+% A - Matrix which eigenvalues are to be calculated
+% e - Desired accuracy
+% Returns:
+% eigenvalues - Found eigenvalues
+% k - Iterations
     n = size(A, 1);
     k = 0;
     eigenvalues = zeros(n, 1);
@@ -24,7 +31,6 @@ function [eigenvalues, k] = PowerMethod(A, e)
                 break;
             end
         end
-    end
-    
+    end    
 end
 
