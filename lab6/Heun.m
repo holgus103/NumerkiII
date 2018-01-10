@@ -1,5 +1,13 @@
 function res = Heun(a, b, n, f, y0)
-    
+% Solves a set of ODEs using Heun's method
+% Parameters:
+% a - Range start
+% b - Range end
+% n - Number of steps
+% f - Vector of function handles to differential equations
+% y0 - Vector of initial conditions
+% Returns:
+% res - Matrix of solutions to all equations   
     y = zeros(n+1, size(y0, 2));
     x = zeros(n+1, 1);
     h = (b - a)/ n;
