@@ -18,5 +18,5 @@ A = [-4 10; 7 5];
 [l, k] = PowerMethod(A, 0.01, 100);
 
 % not working example
-A = [2 1 0; -6 1 -6; -3 1 -1]
+A = [2 1 0; -6 1 -6; -3 1 -1];
 [l, k] = PowerMethod(A, 0.01, 100);

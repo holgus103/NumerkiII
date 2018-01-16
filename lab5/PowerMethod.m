@@ -3,6 +3,7 @@ function [eigenvalues, k] = PowerMethod(A, e, maxIt)
 % Parameters:
 % A - Matrix which eigenvalues are to be calculated
 % e - Desired accuracy
+% maxIt - Maximum numer of iterations
 % Returns:
 % eigenvalues - Found eigenvalues
 % k - Iterations
@@ -20,7 +21,7 @@ function [eigenvalues, k] = PowerMethod(A, e, maxIt)
             end
             x = A * x;
             x = x ./ sqrt(sum(x .* x));
-            lambda = ((A * x)' * x) / sqrt(sum(x .* x));
+            lambda = ((A * x)' * x) / abs(sum(x .* x));
             if(norm((A * x) - (lambda * x)) < e)
                 eigenvalues(i) = lambda;
                 eigenvectors(i, 1: n + 1 - i) = x;
